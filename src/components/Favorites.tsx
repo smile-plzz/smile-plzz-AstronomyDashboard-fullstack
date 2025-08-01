@@ -18,7 +18,11 @@ export default function Favorites() {
 
     const renderFavorites = () => {
         const storedFavorites = JSON.parse(localStorage.getItem('apodFavorites') || '[]');
-        setFavorites(storedFavorites);
+        if (Array.isArray(storedFavorites)) {
+            setFavorites(storedFavorites);
+        } else {
+            setFavorites([]);
+        }
     };
 
     const handleDeleteFavorite = (indexToDelete: number) => {
