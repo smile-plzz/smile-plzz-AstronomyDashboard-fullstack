@@ -1,0 +1,24 @@
+# See https://nextjs.org/docs/basic-features/ignoring-files for more information.
+
+# local .env files
+.env*.local
+
+# next.js build output
+.next/
+
+# dependencies
+node_modules/
+
+# typescript build output
+*.tsbuildinfo
+
+# editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# misc
+.DS_Store
+Thumbs.db
+.vercel
