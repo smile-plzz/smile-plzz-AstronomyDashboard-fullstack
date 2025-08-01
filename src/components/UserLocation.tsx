@@ -2,6 +2,11 @@
 
 import { useState, useEffect } from 'react';
 
+/**
+ * UserLocation component attempts to automatically retrieve and display the user's geographical location
+ * (latitude and longitude) using the browser's Geolocation API.
+ * If geolocation is not supported or fails, it can fall back to a manually saved location.
+ */
 export default function UserLocation() {
     const [userLat, setUserLat] = useState<string>('N/A');
     const [userLon, setUserLon] = useState<string>('N/A');

@@ -9,6 +9,10 @@ interface NasaSearchResult {
     thumbnail?: string;
 }
 
+/**
+ * NasaImageVideoSearch component allows users to search the NASA Image and Video Library.
+ * It displays search results including titles, descriptions, and thumbnails.
+ */
 export default function NasaImageVideoSearch() {
     const [searchInput, setSearchInput] = useState<string>('');
     const [searchResults, setSearchResults] = useState<NasaSearchResult[]>([]);

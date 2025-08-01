@@ -1,5 +1,10 @@
 import { NextResponse } from 'next/server';
 
+/**
+ * Handles GET requests to the mars-rover-photos API endpoint.
+ * Fetches the latest photos from the Curiosity Mars Rover from NASA's API.
+ * @returns {NextResponse} The latest Mars Rover photos data or an error message.
+ */
 export async function GET() {
   const NASA_API_KEY = process.env.NASA_API_KEY;
   console.log('NASA_API_KEY (from env):', NASA_API_KEY ? 'Set' : 'Not Set');

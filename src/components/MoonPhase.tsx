@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from 'react';
 
+/**
+ * MoonPhase component calculates and displays the current phase of the Moon.
+ * The calculation is based on a fixed new moon date and the lunar cycle.
+ */
 export default function MoonPhase() {
     const [moonPhaseText, setMoonPhaseText] = useState<string>('');
 

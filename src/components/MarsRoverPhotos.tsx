@@ -10,6 +10,10 @@ interface RoverPhoto {
     };
 }
 
+/**
+ * MarsRoverPhotos component fetches and displays the latest photos from NASA's Mars Rovers.
+ * Users can navigate through the photos using previous and next buttons.
+ */
 export default function MarsRoverPhotos() {
     const [roverPhotos, setRoverPhotos] = useState<RoverPhoto[]>([]);
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number>(0);

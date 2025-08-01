@@ -1,5 +1,10 @@
 import { NextResponse } from 'next/server';
 
+/**
+ * Handles GET requests to the APOD API endpoint.
+ * Fetches the Astronomy Picture of the Day from NASA's API.
+ * @returns {NextResponse} The APOD data or an error message.
+ */
 export async function GET() {
   const NASA_API_KEY = process.env.NASA_API_KEY;
   const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;

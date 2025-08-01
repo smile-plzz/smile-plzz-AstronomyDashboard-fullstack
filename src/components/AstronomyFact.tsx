@@ -30,6 +30,10 @@ const astronomyFacts: Fact[] = [
     }
 ];
 
+/**
+ * AstronomyFact component displays a random astronomy fact.
+ * Users can click a button to display a new random fact.
+ */
 export default function AstronomyFact() {
     const [currentFact, setCurrentFact] = useState<Fact>(() => {
         const randomIndex = Math.floor(Math.random() * astronomyFacts.length);

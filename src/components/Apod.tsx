@@ -11,6 +11,10 @@ interface ApodData {
     date: string;
 }
 
+/**
+ * Apod component fetches and displays the Astronomy Picture of the Day (APOD).
+ * It includes functionality to add the APOD to favorites and share it.
+ */
 export default function Apod() {
     const [apodData, setApodData] = useState<ApodData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);

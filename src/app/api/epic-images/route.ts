@@ -1,5 +1,11 @@
 import { NextResponse } from 'next/server';
 
+/**
+ * Handles GET requests to the epic-images API endpoint.
+ * Fetches Earth Polychromatic Imaging Camera (EPIC) images from NASA's API for a specific date.
+ * @param {Request} request The incoming request object, containing the 'date' search parameter (YYYY-MM-DD).
+ * @returns {NextResponse} The EPIC image data (including a generated imageUrl) or null if no image is found, or an error message.
+ */
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const date = searchParams.get('date'); // YYYY-MM-DD

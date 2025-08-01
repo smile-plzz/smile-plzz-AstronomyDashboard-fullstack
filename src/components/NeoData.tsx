@@ -23,6 +23,10 @@ interface Neo {
     };
 }
 
+/**
+ * NeoData component fetches and displays information about Near Earth Objects (NEOs).
+ * It shows potentially hazardous NEOs from the last 7 days.
+ */
 export default function NeoData() {
     const [neos, setNeos] = useState<Neo[]>([]);
     const [loading, setLoading] = useState<boolean>(true);

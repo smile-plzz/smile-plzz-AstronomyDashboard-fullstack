@@ -9,6 +9,9 @@ interface EpicImage {
     imageUrl?: string; // Add imageUrl to the interface
 }
 
+/**
+ * EpicImages component fetches and displays the Earth Polychromatic Imaging Camera (EPIC) image of the day.
+ */
 export default function EpicImages() {
     const [epicImage, setEpicImage] = useState<EpicImage | null>(null);
     const [loading, setLoading] = useState<boolean>(true);

@@ -1,5 +1,11 @@
 import { NextResponse } from 'next/server';
 
+/**
+ * Handles GET requests to the nasa-search API endpoint.
+ * Searches the NASA Image and Video Library based on a query and media type.
+ * @param {Request} request The incoming request object, containing 'q' (query) and 'media_type' search parameters.
+ * @returns {NextResponse} The search results data or an error message.
+ */
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const q = searchParams.get('q');

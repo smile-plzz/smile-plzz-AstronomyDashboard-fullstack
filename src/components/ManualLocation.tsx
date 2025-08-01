@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from 'react';
 
+/**
+ * ManualLocation component provides an interface for users to manually input and save
+ * their latitude and longitude. This can be used for features that require a specific location.
+ */
 export default function ManualLocation() {
     const [manualLat, setManualLat] = useState<string>('');
     const [manualLon, setManualLon] = useState<string>('');

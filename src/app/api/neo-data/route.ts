@@ -1,5 +1,12 @@
 import { NextResponse } from 'next/server';
 
+/**
+ * Handles GET requests to the neo-data API endpoint.
+ * Fetches Near Earth Objects (NEOs) data from NASA's NeoWs (Near Earth Object Web Service) API.
+ * Filters for potentially hazardous asteroids within a specified date range.
+ * @param {Request} request The incoming request object, containing 'startDate' and 'endDate' search parameters.
+ * @returns {NextResponse} A JSON array of hazardous NEOs or an error message.
+ */
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const startDate = searchParams.get('startDate');

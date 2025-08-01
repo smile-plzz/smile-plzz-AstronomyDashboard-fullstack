@@ -7,6 +7,10 @@ interface IssPosition {
     longitude: string;
 }
 
+/**
+ * IssLocation component fetches and displays the current latitude and longitude
+ * of the International Space Station (ISS). The data is updated every 5 seconds.
+ */
 export default function IssLocation() {
     const [issPosition, setIssPosition] = useState<IssPosition | null>(null);
     const [loading, setLoading] = useState<boolean>(true);

@@ -8,6 +8,10 @@ interface Favorite {
     date: string;
 }
 
+/**
+ * Favorites component displays a list of Astronomy Picture of the Day (APOD) images saved by the user.
+ * It allows users to view and delete their favorited APODs.
+ */
 export default function Favorites() {
     const [favorites, setFavorites] = useState<Favorite[]>([]);
     const [isCollapsed, setIsCollapsed] = useState<boolean>(true);

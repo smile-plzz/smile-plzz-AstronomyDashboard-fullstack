@@ -8,6 +8,10 @@ interface CelestialEvent {
     link?: string;
 }
 
+/**
+ * CelestialEvents component fetches and displays a list of celestial events.
+ * It shows events from the last 30 days.
+ */
 export default function CelestialEvents() {
     const [events, setEvents] = useState<CelestialEvent[]>([]);
     const [loading, setLoading] = useState<boolean>(true);

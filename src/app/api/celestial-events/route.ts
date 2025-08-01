@@ -1,5 +1,11 @@
 import { NextResponse } from 'next/server';
 
+/**
+ * Handles GET requests to the celestial-events API endpoint.
+ * Fetches Solar Flare (FLR) and Coronal Mass Ejection (CME) data from NASA's DONKI API.
+ * @param {Request} request The incoming request object, containing startDate and endDate search parameters.
+ * @returns {NextResponse} A JSON array of celestial events or an error message.
+ */
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const startDate = searchParams.get('startDate');
