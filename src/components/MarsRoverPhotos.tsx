@@ -28,7 +28,12 @@ export default function MarsRoverPhotos() {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                setRoverPhotos(data.latest_photos);
+                if (data && Array.isArray(data.latest_photos)) {
+                    setRoverPhotos(data.latest_photos);
+                } else {
+                    console.error('API returned non-array data for Mars Rover photos:', data);
+                    setRoverPhotos([]);
+                }
             } catch (err: any) {
                 console.error('Error fetching Mars Rover photos:', err);
                 setError(`Failed to load Mars Rover photos: ${err.message}.`);

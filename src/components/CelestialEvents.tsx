@@ -32,7 +32,12 @@ export default function CelestialEvents() {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                setEvents(data);
+                if (Array.isArray(data)) {
+                    setEvents(data);
+                } else {
+                    console.error('API returned non-array data for celestial events:', data);
+                    setEvents([]);
+                }
 
             } catch (err: any) {
                 console.error('Error fetching celestial events:', err);

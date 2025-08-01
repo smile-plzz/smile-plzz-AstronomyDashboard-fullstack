@@ -46,7 +46,12 @@ export default function NeoData() {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                setNeos(data);
+                if (Array.isArray(data)) {
+                    setNeos(data);
+                } else {
+                    console.error('API returned non-array data for NEOs:', data);
+                    setNeos([]);
+                }
 
             } catch (err: any) {
                 console.error('Error fetching NEO data:', err);
