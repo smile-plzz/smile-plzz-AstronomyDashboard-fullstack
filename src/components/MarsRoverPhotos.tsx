@@ -51,8 +51,6 @@ export default function MarsRoverPhotos() {
         );
     };
 
-    const currentPhoto = roverPhotos[currentPhotoIndex];
-
     return (
         <section id="mars-rover-photos">
             <h2>Mars Rover Photos</h2>
@@ -62,9 +60,9 @@ export default function MarsRoverPhotos() {
             {!loading && roverPhotos.length > 0 && (
                 <div id="roverPhotosContainer">
                     <div id="currentRoverPhoto">
-                        <img id="roverImage" src={currentPhoto.img_src} alt={`Mars Rover Photo - ${currentPhoto.earth_date}`} />
+                        <img id="roverImage" src={roverPhotos[currentPhotoIndex].img_src} alt={`Mars Rover Photo - ${roverPhotos[currentPhotoIndex].earth_date}`} />
                         <p id="roverPhotoDetails">
-                            Earth Date: {currentPhoto.earth_date} | Camera: {currentPhoto.camera.full_name}
+                            Earth Date: {roverPhotos[currentPhotoIndex].earth_date} | Camera: {roverPhotos[currentPhotoIndex].camera.full_name}
                         </p>
                     </div>
                     <div className="rover-navigation">

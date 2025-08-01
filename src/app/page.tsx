@@ -8,7 +8,7 @@ import MarsRoverPhotos from '../components/MarsRoverPhotos';
 import EpicImages from '../components/EpicImages';
 import AstronomyFact from '../components/AstronomyFact';
 import NasaImageVideoSearch from '../components/NasaImageVideoSearch';
-import StarChart from '../components/StarChart';
+
 import Favorites from '../components/Favorites';
 import ManualLocation from '../components/ManualLocation';
 
@@ -30,7 +30,7 @@ export default function Home() {
         <EpicImages />
         <AstronomyFact />
         <NasaImageVideoSearch />
-        <StarChart />
+        
         <Favorites />
         <ManualLocation />
       </main>
