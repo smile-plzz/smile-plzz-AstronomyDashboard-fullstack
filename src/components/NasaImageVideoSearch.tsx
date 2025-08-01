@@ -29,17 +29,21 @@ export default function NasaImageVideoSearch() {
             }
             const data = await response.json();
 
-            const items: NasaSearchResult[] = data.collection.items.map((item: any) => {
-                const data = item.data[0];
-                const links = item.links ? item.links[0] : null;
-                return {
-                    nasa_id: data.nasa_id,
-                    title: data.title,
-                    description: data.description,
-                    thumbnail: links ? links.href : undefined,
-                };
-            });
-            setSearchResults(items);
+            if (data.collection && data.collection.items) {
+                const items: NasaSearchResult[] = data.collection.items.map((item: any) => {
+                    const data = item.data[0];
+                    const links = item.links ? item.links[0] : null;
+                    return {
+                        nasa_id: data.nasa_id,
+                        title: data.title,
+                        description: data.description,
+                        thumbnail: links ? links.href : undefined,
+                    };
+                });
+                setSearchResults(items);
+            } else {
+                setSearchResults([]);
+            }
 
         } catch (err: any) {
             console.error('Error fetching NASA search results:', err);
