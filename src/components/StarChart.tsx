@@ -72,7 +72,7 @@ export default function StarChart() {
             projection: "aitoff",
             center: [userLon, userLat],
             zoomlevel: 1,
-            datapath: "https://cdn.jsdelivr.net/npm/d3-celestial@0.7.3/data/",
+            datapath: "/data/",
             stars: {
                 colors: true,
                 names: true,
