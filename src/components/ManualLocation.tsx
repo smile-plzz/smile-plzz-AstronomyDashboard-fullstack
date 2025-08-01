@@ -10,8 +10,8 @@ export default function ManualLocation() {
     useEffect(() => {
         const savedLat = localStorage.getItem('manualLat');
         const savedLon = localStorage.getItem('manualLon');
-        if (savedLat) setManualLat(savedLat);
-        if (savedLon) setManualLon(savedLon);
+        if (savedLat) setManualLat(savedLat || '');
+        if (savedLon) setManualLon(savedLon || '');
     }, []);
 
     const handleSaveLocation = () => {
