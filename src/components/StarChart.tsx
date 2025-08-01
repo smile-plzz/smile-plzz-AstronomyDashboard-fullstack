@@ -8,6 +8,7 @@ export default function StarChart() {
     const [userLat, setUserLat] = useState<number | null>(null);
     const [userLon, setUserLon] = useState<number | null>(null);
     const [locationStatus, setLocationStatus] = useState<string>('');
+    const [celestialLoaded, setCelestialLoaded] = useState<boolean>(false);
 
     useEffect(() => {
         // Load manual location if available
@@ -35,13 +36,27 @@ export default function StarChart() {
     }, []);
 
     useEffect(() => {
-        if (userLat !== null && userLon !== null) {
+        // Dynamically load d3 and d3-celestial
+        const loadScripts = async () => {
+            try {
+                await import('d3');
+                await import('d3-celestial');
+                setCelestialLoaded(true);
+            } catch (error) {
+                console.error('Failed to load d3 or d3-celestial:', error);
+            }
+        };
+        loadScripts();
+    }, []);
+
+    useEffect(() => {
+        if (userLat !== null && userLon !== null && celestialLoaded) {
             updateStarChart();
         }
-    }, [userLat, userLon]);
+    }, [userLat, userLon, celestialLoaded]);
 
     const updateStarChart = () => {
-        if (userLat === null || userLon === null) {
+        if (userLat === null || userLon === null || !celestialLoaded) {
             return;
         }
 
@@ -93,7 +108,7 @@ export default function StarChart() {
         <section id="star-chart">
             <h2>Interactive Star Chart</h2>
             <div id="star-chart-display" style={{ width: '100%', height: '500px', backgroundColor: '#000', color: '#fff', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.5rem', borderRadius: '8px', marginTop: '1.5rem', position: 'relative', overflow: 'hidden' }}>
-                {(userLat === null || userLon === null) && <p>Please enable location services or enter your location manually to display the star chart.</p>}
+                {(!celestialLoaded || userLat === null || userLon === null) && <p>Loading star chart or waiting for location...</p>}
             </div>
             <div id="star-chart-controls">
                 <button id="refreshStarChart" onClick={updateStarChart}>Refresh Star Chart</button>

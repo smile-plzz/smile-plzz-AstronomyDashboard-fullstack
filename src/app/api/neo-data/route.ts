@@ -6,6 +6,7 @@ export async function GET(request: Request) {
   const endDate = searchParams.get('endDate');
 
   const NASA_API_KEY = process.env.NASA_API_KEY;
+  console.log('NASA_API_KEY (from env):', NASA_API_KEY ? 'Set' : 'Not Set');
 
   const NEO_API_URL = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=${NASA_API_KEY}`;
 

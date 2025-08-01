@@ -6,6 +6,7 @@ export async function GET(request: Request) {
   const endDate = searchParams.get('endDate');
 
   const NASA_API_KEY = process.env.NASA_API_KEY;
+  console.log('NASA_API_KEY (from env):', NASA_API_KEY ? 'Set' : 'Not Set');
 
   const DONKI_API_URL_FLR = `https://api.nasa.gov/DONKI/FLR?startDate=${startDate}&endDate=${endDate}&api_key=${NASA_API_KEY}`;
   const DONKI_API_URL_CME = `https://api.nasa.gov/DONKI/CMEAnalysis?startDate=${startDate}&endDate=${endDate}&mostAccurateOnly=true&speed=500&halfAngle=30&catalog=ALL&api_key=${NASA_API_KEY}`;

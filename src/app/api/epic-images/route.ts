@@ -5,6 +5,7 @@ export async function GET(request: Request) {
   const date = searchParams.get('date'); // YYYY-MM-DD
 
   const NASA_API_KEY = process.env.NASA_API_KEY;
+  console.log('NASA_API_KEY (from env):', NASA_API_KEY ? 'Set' : 'Not Set');
 
   const EPIC_API_URL = `https://api.nasa.gov/EPIC/api/natural/date/${date}?api_key=${NASA_API_KEY}`;
 

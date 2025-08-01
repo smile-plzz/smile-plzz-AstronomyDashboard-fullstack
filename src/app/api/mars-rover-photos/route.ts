@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   const NASA_API_KEY = process.env.NASA_API_KEY;
+  console.log('NASA_API_KEY (from env):', NASA_API_KEY ? 'Set' : 'Not Set');
+
   const MARS_ROVER_API_URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key=${NASA_API_KEY}`;
 
   try {

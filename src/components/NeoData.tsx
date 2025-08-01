@@ -71,9 +71,9 @@ export default function NeoData() {
                         {neos.map((neo, index) => (
                             <li key={index}>
                                 <strong>{neo.name}</strong><br />
-                                Approach Date: {new Date(neo.close_approach_data[0].close_approach_date).toDateString()}<br />
-                                Miss Distance: {parseFloat(neo.close_approach_data[0].miss_distance.kilometers).toFixed(2)} km<br />
-                                Relative Velocity: {parseFloat(neo.close_approach_data[0].relative_velocity.kilometers_per_second).toFixed(2)} km/s<br />
+                                Approach Date: {neo.close_approach_data && neo.close_approach_data.length > 0 ? new Date(neo.close_approach_data[0].close_approach_date).toDateString() : 'N/A'}<br />
+                                Miss Distance: {neo.close_approach_data && neo.close_approach_data.length > 0 ? parseFloat(neo.close_approach_data[0].miss_distance.kilometers).toFixed(2) : 'N/A'} km<br />
+                                Relative Velocity: {neo.close_approach_data && neo.close_approach_data.length > 0 ? parseFloat(neo.close_approach_data[0].relative_velocity.kilometers_per_second).toFixed(2) : 'N/A'} km/s<br />
                                 Est. Diameter: {neo.estimated_diameter.kilometers.estimated_diameter_min.toFixed(2)} - {neo.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)} km<br />
                                 <a href={neo.nasa_jpl_url} target="_blank" rel="noopener noreferrer">More Info (JPL)</a>
                             </li>

@@ -5,6 +5,9 @@ export async function GET(request: Request) {
   const q = searchParams.get('q');
   const media_type = searchParams.get('media_type');
 
+  const NASA_API_KEY = process.env.NASA_API_KEY;
+  console.log('NASA_API_KEY (from env):', NASA_API_KEY ? 'Set' : 'Not Set');
+
   const NASA_SEARCH_API_URL = `https://images-api.nasa.gov/search?q=${q}&media_type=${media_type}`;
 
   try {
